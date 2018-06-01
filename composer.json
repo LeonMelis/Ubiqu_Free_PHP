@@ -1,5 +1,5 @@
 {
-  "name": "LeonMelis/UQ_free",
+  "name": "LeonMelis/uq_free",
   "description": "An unofficial PHP implementation for the Ubiqu Free API",
   "license": "MIT",
   "keywords": [
@@ -21,7 +21,7 @@
   },
   "autoload": {
     "psr-4": {
-      "LeonMelis\\UQ_free\\": "src"
+      "LeonMelis\\uq_free\\": "src"
     }
   },
   "require": {

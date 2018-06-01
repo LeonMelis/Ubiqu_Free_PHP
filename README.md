@@ -10,7 +10,7 @@ License: MIT
 This library can easily be installed through Composer.
 
 ```php
-composer require LeonMelis/UQ_free
+composer require leonmelis/uq_free
 ```
 
 Then use it in your PHP code using:

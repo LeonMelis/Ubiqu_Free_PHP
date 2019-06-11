@@ -21,7 +21,7 @@
   },
   "autoload": {
     "psr-4": {
-      "LeonMelis\\uq_free\\": "src"
+      "LeonMelis\\UQ_free\\": "src"
     }
   },
   "require": {

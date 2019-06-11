@@ -43,7 +43,7 @@ $provider = UQ_free\ServiceProvider::create(
     'https://mydomain.com/callback'
 );
 
-echo "UUID: {$provider->getUuid()}\n"
+echo "UUID: {$provider->getUuid()}\n";
 echo "API key: '{$provider->getAPIKey()}'\n";
 echo "Activate admin with nonce: '{$provider->getNonceFormatted()}'\n";
 ```

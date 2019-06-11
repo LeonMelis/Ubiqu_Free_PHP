@@ -83,7 +83,7 @@ the asset is ready to use.
 $identification = $provider->createIdentification();
 echo "Identify with: '{$identification->getNonceFormatted()}'\n";
 // Wait for callback, then we can fetch the asset
-$asset = $identification->getAsset();
+$asset = $identification->fetchAsset();
 ```
 
 ## Performing an `AssetRequest`

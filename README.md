@@ -106,7 +106,7 @@ $sign_request = $asset->sign(hash($document));
 $verified = $sign_request->verify();
 
 /* Decrypt */
-$decrypt_request = $asset->descrypt($encrypted_data);
+$decrypt_request = $asset->decrypt($encrypted_data);
 // Wait for callback
 $plain = $decrypt_request->getPlainText();
 ```

@@ -47,12 +47,12 @@ class Decrypt extends AssetRequest {
      * Sets up the AES CBC transport cipher, using a random key of $keyLength bits.
      * Ubiqu recommends using the 128 bit key, but 256 is also supported.
      *
-     * @param null|string $uuid
-     * @param Connector $connector
+     * @param string|null $uuid
+     * @param Connector|null $connector
      * @param int $keyLength length of transport key (in bits) to use
      *    defaults to 128 per recommendation of Ubiqu
      */
-    function __construct($uuid = null, Connector $connector, $keyLength = 128) {
+    function __construct($uuid = null, Connector $connector = null, $keyLength = 128) {
         parent::__construct($uuid, $connector);
 
         $this->transport = new AES(AES::MODE_CBC);

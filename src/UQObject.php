@@ -178,11 +178,11 @@ abstract class UQObject {
      *
      * @param string $type the object type as POSTed by the notification
      * @param string|null $uuid the UUID of the object
-     * @param Connector $connector
+     * @param Connector|null $connector
      * @throws UQException if object type is not supported
      * @return UQObject
      */
-    public static function createObjectByType($type, $uuid = null, $connector) {
+    public static function createObjectByType($type, $uuid = null, Connector $connector = null) {
         if (!in_array($type, self::TYPE_TO_CLASS, true)) {
             throw new UQException("Unsupported UQ object type '{$type}'");
         }

@@ -95,7 +95,7 @@ class Decrypt extends AssetRequest {
      * @throws UQException
      */
     private function buildTransportKeyASN1() {
-        // The OID's for aes128-cbc and aes256-cbc are not (yet?) defined in PHPSecLib
+        // The OIDs for aes128-cbc and aes256-cbc are not (yet?) defined in PHPSecLib
         // So, we hardcoded them here
         switch ($this->transport->getKeyLength()) {
             case 128:

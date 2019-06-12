@@ -37,7 +37,7 @@ class CSR {
     const EMPTY_SIGNATURE = 'AA==';
 
     /**
-     * @var \LeonMelis\UQ_free\Asset $asset
+     * @var Asset $asset
      */
     private $asset;
 
@@ -82,7 +82,7 @@ class CSR {
      * @see phpseclib::X509 for supported formats
      * @param int $format the format to return the CSR in
      * @return string the signed signature in given format
-     * @throws \LeonMelis\UQ_free\UQException if no signature was set
+     * @throws UQException if no signature was set
      */
     function getSigned($format = X509::FORMAT_PEM) {
         $this->sign->fetch();

@@ -2,6 +2,8 @@
 
 namespace LeonMelis\UQ_free;
 
+use stdClass;
+
 /**
  * Interface CacheInterface
  *
@@ -18,7 +20,7 @@ interface CacheInterface {
      *
      * @param string $type the type of object we are looking for, such as 'asset' or 'serviceprovider'
      * @param string $uuid the UUID of the object we are looking for
-     * @return null|\stdClass
+     * @return null|stdClass
      */
     public function read($type, $uuid);
 
@@ -27,7 +29,7 @@ interface CacheInterface {
      *
      * @param string $type the type of UQ object, such as 'asset' or 'serviceprovider'
      * @param string $uuid
-     * @param \stdClass $data
+     * @param stdClass $data
      */
     public function write($type, $uuid, $data);
 }

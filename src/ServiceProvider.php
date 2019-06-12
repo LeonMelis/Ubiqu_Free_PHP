@@ -2,6 +2,8 @@
 
 namespace LeonMelis\UQ_free;
 
+use stdClass;
+
 /**
  * Class ServiceProvider
  * @package LeonMelis\UQ_free
@@ -82,7 +84,7 @@ class ServiceProvider extends UQObject {
      * Override the parent readData class, so the if the API key is created by the API
      * we update the connector
      *
-     * @param \stdClass|array $data
+     * @param stdClass|array $data
      */
     final function readData($data) {
         parent::readData($data);

@@ -2,6 +2,8 @@
 
 namespace LeonMelis\UQ_free;
 
+use stdClass;
+
 /**
  * Class NotificationHandler
  * @package LeonMelis\UQ_free
@@ -27,7 +29,7 @@ class NotificationHandler {
 
     /**
      * @param $data
-     * @return \stdClass
+     * @return stdClass
      * @throws UQException
      */
     private static function decodeNotification($data) {
@@ -49,7 +51,7 @@ class NotificationHandler {
      *
      * The UQ object will be constructed, but not fetched.
      *
-     * @param \stdClass $notification
+     * @param stdClass $notification
      * @return UQObject
      * @throws UQException
      */
@@ -70,7 +72,7 @@ class NotificationHandler {
      * then fetching that object through the Ubiqu Free API. Fetching the object will
      * also trigger the write() method on the cache interface.
      *
-     * @param \stdClass|string $data the POST data from the notification
+     * @param stdClass|string $data the POST data from the notification
      * @return UQObject
      * @throws UQException
      */

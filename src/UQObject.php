@@ -2,6 +2,9 @@
 
 namespace LeonMelis\UQ_free;
 
+use DateTime;
+use stdClass;
+
 /**
  * Class UQObject
  *
@@ -61,12 +64,12 @@ abstract class UQObject {
     protected $status_text;
 
     /**
-     * @var \DateTime $created_at
+     * @var DateTime $created_at
      */
     protected $created_at;
 
     /**
-     * @var \DateTime $updated_at
+     * @var DateTime $updated_at
      */
     protected $updated_at;
 
@@ -120,7 +123,7 @@ abstract class UQObject {
     }
 
     /**
-     * @param \stdClass|array $data
+     * @param stdClass|array $data
      */
     function readData($data) {
         foreach ($data as $key => $value) {
@@ -146,7 +149,7 @@ abstract class UQObject {
             case 'updated_at':
                 // Note that neither \DateTime::ISO8601 nor \DateTime::ATOM are actually
                 // compliant with an ISO8601 time string which includes microseconds
-                return \DateTime::createFromFormat('Y-m-d\TH:i:s.uP', $value);
+                return DateTime::createFromFormat('Y-m-d\TH:i:s.uP', $value);
                 break;
             default:
                 return $value;

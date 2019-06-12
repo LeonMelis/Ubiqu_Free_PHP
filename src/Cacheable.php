@@ -2,6 +2,8 @@
 
 namespace LeonMelis\UQ_free;
 
+use stdClass;
+
 /**
  * Trait Cacheable
  * @package LeonMelis\UQ_free
@@ -17,7 +19,7 @@ trait Cacheable {
      *
      * @param string $type
      * @param string $uuid
-     * @return null|\stdClass
+     * @return null|stdClass
      */
     private function cacheRead($type, $uuid) {
         if (!$this->cacheHandler) {
@@ -30,7 +32,7 @@ trait Cacheable {
     /**
      * @param string $type
      * @param string $uuid
-     * @param \stdClass $data
+     * @param stdClass $data
      */
     private function cacheWrite($type, $uuid, $data) {
         if (!$this->cacheHandler) {

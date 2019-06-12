@@ -2,6 +2,8 @@
 
 namespace LeonMelis\UQ_free;
 
+use stdClass;
+
 /**
  * Class MemoryCache
  *
@@ -15,7 +17,7 @@ class MemoryCache implements CacheInterface {
     /**
      * @param string $type
      * @param string $uuid
-     * @return null|\stdClass
+     * @return null|stdClass
      */
     public function read($type, $uuid) {
         if (array_key_exists($type, $this->data) && array_key_exists($uuid, $this->data[$type])) {
@@ -30,7 +32,7 @@ class MemoryCache implements CacheInterface {
     /**
      * @param string $type
      * @param string $uuid
-     * @param \stdClass $data
+     * @param stdClass $data
      */
     public function write($type, $uuid, $data) {
         $this->data[$type][$uuid] = $data;

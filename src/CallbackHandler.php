@@ -2,6 +2,8 @@
 
 namespace LeonMelis\UQ_free;
 
+use stdClass;
+
 /**
  * Class CallbackHandler
  * @package LeonMelis\UQ_free
@@ -19,7 +21,7 @@ class CallbackHandler {
 
     /**
      * @param $data
-     * @return \stdClass
+     * @return stdClass
      * @throws UQException
      */
     private static function readCallback($data) {
@@ -37,7 +39,7 @@ class CallbackHandler {
     }
 
     /**
-     * @param \stdClass|string $data the POST data from the callback
+     * @param stdClass|string $data the POST data from the callback
      * @throws UQException
      */
     public function handleCallback($data) {

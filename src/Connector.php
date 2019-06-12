@@ -2,6 +2,8 @@
 
 namespace LeonMelis\UQ_free;
 
+use stdClass;
+
 /**
  * Class Connector
  * @package LeonMelis\UQ_free
@@ -96,7 +98,7 @@ class Connector {
      * @param string $request
      * @param array|null $data the POST data or GET query params
      * @param bool $post set false to perform a GET
-     * @return \stdClass the returned object from the API
+     * @return stdClass the returned object from the API
      * @throws UQException
      */
     private function request($request, $data = null, $post = true) {
@@ -157,7 +159,7 @@ class Connector {
      *
      * @param UQObject $object
      * @throws UQException
-     * @return \stdClass response from the API
+     * @return stdClass response from the API
      */
     function fetch($object) {
         return $this->request(join('/', [$object->getType(), $object->getUuid()]), null, false);
@@ -168,7 +170,7 @@ class Connector {
      *
      * @param string $request
      * @param array|null $data the POST data
-     * @return \stdClass response from the API
+     * @return stdClass response from the API
      * @throws UQException if request to API fails
      */
     function post($request, $data = null) {
@@ -220,7 +222,7 @@ class Connector {
      *
      * @param UQObject $object
      * @param bool $forceFetch set true to force fetching from the API
-     * @return \stdClass
+     * @return stdClass
      * @throws UQException
      */
     public function loadObject($object, $forceFetch = false) {
@@ -243,8 +245,8 @@ class Connector {
      * Create a new object on the Ubiqu server
      *
      * @param string $type
-     * @param \stdClass|array $data
-     * @return \stdClass
+     * @param stdClass|array $data
+     * @return stdClass
      * @throws UQException
      */
     public function createObject($type, $data) {

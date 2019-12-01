@@ -17,6 +17,16 @@ class Identification extends UQObject {
     protected $asset_uuid;
 
     /**
+     * @var string $appapi the app-to-app API URL scheme
+     */
+    protected $appapi;
+
+    /**
+     * @var string $qrcode the BASE64 encoded QR code
+     */
+    protected $qrcode;
+
+    /**
      * @return string
      */
     public function getNonce() {
@@ -49,5 +59,34 @@ class Identification extends UQObject {
      */
     public function fetchAsset() {
         return new Asset($this->asset_uuid, $this->connector);
+    }
+
+    /**
+     * @return string the app-API scheme URI
+     */
+    public function getAppAPI() {
+        return $this->appapi;
+    }
+
+    /**
+     * @return string the QR code as PNG image
+     * @throws UQException if image could not be BASE64 decoded
+     */
+    public function getQRCodePNG() {
+        $png = base64_decode($this->qrcode, true);
+
+        if ($png === false) {
+            throw new UQException('Cannot BASE64 decode QR-code PNG image');
+        }
+
+        return $png;
+    }
+
+
+    /**
+     * @return string the BASE64 encoded QR code PNG image
+     */
+    public function getQRCodeB64() {
+        return $this->qrcode;
     }
 }

@@ -9,7 +9,7 @@ License: MIT
 ## Installation
 This library can easily be installed through Composer.
 
-```php
+```shell script
 composer require leonmelis/uq_free
 ```
 

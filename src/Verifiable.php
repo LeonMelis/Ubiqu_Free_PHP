@@ -55,7 +55,7 @@ trait Verifiable {
      * Set the data to be verified, if NULL, we generate a random.
      *
      * NOTE: We could also send NULL as data to Ubiqu, in that case the Ubiqu API will
-     * generate a secure random value for us, but it always returns the SHA256 hash, not
+     * generate a secure random value for us, but it always returns the SHA256 hash digest, not
      * the original value. This was a problem when this library was still using openssl
      * because openssl_verify() has no option to use raw input, it ALWAYS hashes the data
      * prior to verification

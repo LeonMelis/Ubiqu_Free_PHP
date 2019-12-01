@@ -22,9 +22,9 @@ use phpseclib\Crypt\RSA;
  *
  * The procedure to create the CSR is as follows:
  * - Create a CSR ASN.1 structure without a signature
- * - Calculate a hash over the CSR ASN.1 structure
- * - Sign the hash using the asset through the Ubiqu free API
- * - Add the hash to the CSR ASN.1 structure
+ * - Calculate a hash digest over the CSR ASN.1 structure
+ * - Sign the hash digest using the asset through the Ubiqu free API
+ * - Add the hash digest to the CSR ASN.1 structure
  * - Export the CSR in a common format (usually PEM)
  *
  * Example:

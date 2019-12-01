@@ -157,8 +157,8 @@ class CSR {
     private function getSignature() {
         if ($this->sign && $this->sign->isAccepted()) {
             return base64_encode($this->sign->getSignature());
-        } else {
-            return self::EMPTY_SIGNATURE;
         }
+
+        return self::EMPTY_SIGNATURE;
     }
 }

@@ -128,7 +128,7 @@ abstract class UQObject {
             if (property_exists($this, $key)) {
                 $this->$key = self::read($key, $value);
             } else {
-                $cls = get_called_class();
+                $cls = static::class;
                 error_log("Received unknown property '{$key}' for {$cls} from API");
             }
         }

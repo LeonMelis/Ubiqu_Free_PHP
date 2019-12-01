@@ -104,7 +104,7 @@ class Connector {
     private function request($request, $data = null, $post = true) {
         $ch = curl_init();
 
-        $url = join('/', [self::getURL(), $request]);
+        $url = implode('/', [self::getURL(), $request]);
 
         if ($post) {
             curl_setopt($ch, CURLOPT_POST, true);
@@ -162,7 +162,7 @@ class Connector {
      * @return stdClass response from the API
      */
     function fetch($object) {
-        return $this->request(join('/', [$object->getType(), $object->getUuid()]), null, false);
+        return $this->request(implode('/', [$object->getType(), $object->getUuid()]), null, false);
     }
 
     /**

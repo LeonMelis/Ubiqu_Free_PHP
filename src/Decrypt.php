@@ -56,7 +56,7 @@ class Decrypt extends AssetRequest {
         parent::__construct($uuid, $connector);
 
         $this->transport = new AES(AES::MODE_CBC);
-        $this->transport->setKey((new Random())->string($keyLength / 8));
+        $this->transport->setKey((new Random())::string($keyLength / 8));
     }
 
     /**

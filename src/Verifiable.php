@@ -64,7 +64,7 @@ trait Verifiable {
      */
     function setData($data = null) {
         if (is_null($data)) {
-            $this->data = (new Random())->string(32);
+            $this->data = (new Random())::string(32);
         } else {
             $this->data = $data;
         }

@@ -52,7 +52,7 @@ class Decrypt extends AssetRequest {
      * @param int $keyLength length of transport key (in bits) to use
      *    defaults to 128 per recommendation of Ubiqu
      */
-    function __construct($uuid = null, Connector $connector = null, $keyLength = 128) {
+    public function __construct($uuid = null, Connector $connector = null, $keyLength = 128) {
         parent::__construct($uuid, $connector);
 
         $this->transport = new AES(AES::MODE_CBC);
@@ -65,7 +65,7 @@ class Decrypt extends AssetRequest {
      * @return string the plaintext
      * @throws UQException
      */
-    function getPlainText() {
+    public function getPlainText() {
         if (!$this->isAccepted()) {
             throw new UQException('Decrypt request was not (yet) accepted');
         }
@@ -136,7 +136,7 @@ class Decrypt extends AssetRequest {
      * @throws UQException
      * @return string the encrypted ASN.1 structure in DER format (binary)
      */
-    function getTransportKeyCipher() {
+    public function getTransportKeyCipher() {
         $rsa = $this->getAsset()->getRSA();
 
         // Encrypt the ASN1 structure with the asset public key

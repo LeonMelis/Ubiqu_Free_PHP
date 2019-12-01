@@ -35,7 +35,7 @@ class Connector {
      * Connector constructor.
      * @param CacheInterface|null $cacheHandler
      */
-    function __construct(CacheInterface $cacheHandler = null) {
+    public function __construct(CacheInterface $cacheHandler = null) {
         $this->cacheHandler = $cacheHandler ?: new MemoryCache();
     }
 
@@ -158,10 +158,10 @@ class Connector {
      * Fetch a UQObject from the Ubiqu free API
      *
      * @param UQObject $object
-     * @throws UQException
      * @return stdClass response from the API
+     * @throws UQException
      */
-    function fetch($object) {
+    private function fetch($object) {
         return $this->request(implode('/', [$object->getType(), $object->getUuid()]), null, false);
     }
 
@@ -173,7 +173,7 @@ class Connector {
      * @return stdClass response from the API
      * @throws UQException if request to API fails
      */
-    function post($request, $data = null) {
+    public function post($request, $data = null) {
         return $this->request($request, $data, true);
     }
 

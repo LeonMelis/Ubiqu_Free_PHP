@@ -57,7 +57,7 @@ class CSR {
      * @param Asset $asset
      * @param array $dn the DN structure of the CSR as named array
      */
-    function __construct($asset, $dn = []) {
+    public function __construct($asset, $dn = []) {
         $this->asset = $asset;
 
         $this->x509 = new X509();
@@ -70,7 +70,7 @@ class CSR {
      * @return Sign
      * @throws UQException
      */
-    function requestSign() {
+    public function requestSign() {
         $this->sign = $this->asset->sign($this->calculateHash());
 
         return $this->sign;
@@ -79,12 +79,12 @@ class CSR {
     /**
      * Get the signed CSR in given format, defaults to PEM
      *
-     * @see phpseclib::X509 for supported formats
      * @param int $format the format to return the CSR in
      * @return string the signed signature in given format
      * @throws UQException if no signature was set
+     * @see phpseclib::X509 for supported formats
      */
-    function getSigned($format = X509::FORMAT_PEM) {
+    public function getSigned($format = X509::FORMAT_PEM) {
         $this->sign->fetch();
 
         if (!$this->sign->isAccepted()) {
@@ -99,9 +99,9 @@ class CSR {
     }
 
     /**
-     * Calculate the hash of the unsigned CSR.
+     * Calculate the hash digest of the unsigned CSR.
      *
-     * @return string
+     * @return string the hash digest of the unsigned CSR
      * @throws UQException
      */
     private function calculateHash() {

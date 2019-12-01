@@ -70,7 +70,7 @@ class ServiceProvider extends UQObject {
      * @param string|null $api_key
      * @param Connector|null $connector optional custom connector instance
      */
-    function __construct($uuid = null, $api_key = null, Connector $connector = null) {
+    public function __construct($uuid = null, $api_key = null, Connector $connector = null) {
         if (!$connector) {
             $connector = new Connector();
         }
@@ -86,7 +86,7 @@ class ServiceProvider extends UQObject {
      *
      * @param stdClass|array $data
      */
-    final function readData($data) {
+    final public function readData($data) {
         parent::readData($data);
 
         if (is_object($data) && property_exists($data, 'api_key') && !empty($data->api_key)) {
@@ -102,10 +102,10 @@ class ServiceProvider extends UQObject {
      * @param string $callback_url
      * @param string $template
      * @param Connector|null $connector optional connector, if not set, a default connector is created
-     * @throws UQException if request to API fails
      * @return ServiceProvider
+     * @throws UQException if request to API fails
      */
-    static function create($name, $url, $callback_url, $template = 'ubiqu_nourl', Connector $connector = null) {
+    public static function create($name, $url, $callback_url, $template = 'ubiqu_nourl', Connector $connector = null) {
         $provider = new self(null, null, $connector);
 
         $provider->doCreate([
@@ -124,7 +124,7 @@ class ServiceProvider extends UQObject {
      * @return bool true if successful
      * @throws UQException if request to API fails
      */
-    function validateDomain($force = false) {
+    public function validateDomain($force = false) {
         if ($this->domain_validated && !$force) {
             // Domain already validated, don't perform request
             return true;
@@ -138,7 +138,7 @@ class ServiceProvider extends UQObject {
     /**
      * @return string
      */
-    function getDomainChallenge() {
+    public function getDomainChallenge() {
         return $this->domain_challenge;
     }
 
@@ -173,7 +173,7 @@ class ServiceProvider extends UQObject {
      * @return Identification
      * @throws UQException if request to API fails
      */
-    function createIdentification() {
+    public function createIdentification() {
         $identification = new Identification(null, $this->connector);
         $identification->doCreate();
 
@@ -187,7 +187,7 @@ class ServiceProvider extends UQObject {
      * @param string $uuid
      * @return Asset
      */
-    function getAsset($uuid) {
+    public function getAsset($uuid) {
         return new Asset($uuid, $this->connector);
     }
 
@@ -196,7 +196,7 @@ class ServiceProvider extends UQObject {
      *
      * @return Asset
      */
-    function getAdminAsset() {
+    public function getAdminAsset() {
         return new Asset($this->asset_uuid, $this->connector);
     }
 }

@@ -33,7 +33,7 @@ trait Verifiable {
      * @return bool true if valid
      * @throws UQException if signature could not be verified
      */
-    function verify() {
+    public function verify() {
         /**
          * NOTE: PHP linters such as PHPStorm won't know the internal type of $asset,
          * because this trait may not have the getAsset method. So we set it here
@@ -62,8 +62,8 @@ trait Verifiable {
      *
      * @param string|null $data
      */
-    function setData($data = null) {
-        if (is_null($data)) {
+    public function setData($data = null) {
+        if ($data === null) {
             $this->data = (new Random())::string(32);
         } else {
             $this->data = $data;
@@ -75,7 +75,7 @@ trait Verifiable {
      *
      * @return string
      */
-    function getFingerPrint() {
+    public function getFingerPrint() {
         return (new Hash('sha256'))->hash($this->data);
     }
 }

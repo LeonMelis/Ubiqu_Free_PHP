@@ -79,7 +79,7 @@ abstract class UQObject {
      * @param string|null $uuid optional, the UUID of this UQObject
      * @param Connector|null $connector optional, the Connector interface to use
      */
-    function __construct($uuid = null, Connector $connector = null) {
+    public function __construct($uuid = null, Connector $connector = null) {
         $this->connector = $connector;
         $this->type = $this->getAPINamespace();
 
@@ -115,17 +115,15 @@ abstract class UQObject {
      *
      * @return string the API namespace
      */
-    function getAPINamespace() {
-        $className = get_called_class();
-
+    public function getAPINamespace() {
         // strip the namespace, convert to lowercase
-        return strtolower(substr($className, strrpos($className, '\\') + 1));
+        return strtolower(substr(static::class, strrpos(static::class, '\\') + 1));
     }
 
     /**
      * @param stdClass|array $data
      */
-    function readData($data) {
+    public function readData($data) {
         foreach ($data as $key => $value) {
             if (property_exists($this, $key)) {
                 $this->$key = self::read($key, $value);
@@ -162,7 +160,7 @@ abstract class UQObject {
      * @param array|null $data
      * @throws UQException
      */
-    function doCreate($data = null) {
+    public function doCreate($data = null) {
         $this->readData($this->connector->createObject($this->getAPINamespace(), $data));
     }
 
@@ -172,7 +170,7 @@ abstract class UQObject {
      * @param bool $force
      * @throws UQException
      */
-    function fetch($force = false) {
+    public function fetch($force = false) {
         $this->readData($this->connector->loadObject($this, $force));
     }
 

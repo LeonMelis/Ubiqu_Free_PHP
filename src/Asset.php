@@ -67,7 +67,7 @@ class Asset extends UQObject {
      * @return Authenticate
      * @throws UQException if request to API fails
      */
-    function authenticate($data = null, $notify = true) {
+    public function authenticate($data = null, $notify = true) {
         $authenticate = new Authenticate(null, $this->connector);
         $authenticate->setData($data);
 
@@ -91,7 +91,7 @@ class Asset extends UQObject {
      * @return Sign
      * @throws UQException if request to API fails
      */
-    function sign($data, $resource_uri = '', $notify = true) {
+    public function sign($data, $resource_uri = '', $notify = true) {
         $sign = new Sign(null, $this->connector);
         $sign->setData($data);
 
@@ -118,7 +118,7 @@ class Asset extends UQObject {
      * @return Decrypt
      * @throws UQException
      */
-    function decrypt($cipher_data, $notify = true) {
+    public function decrypt($cipher_data, $notify = true) {
         $decrypt = new Decrypt(null, $this->connector);
 
         $decrypt->doCreate([
@@ -140,7 +140,7 @@ class Asset extends UQObject {
      * @throws UQException
      * @return string the binary ciphertext
      */
-    function encrypt($plaintext) {
+    public function encrypt($plaintext) {
         $rsa = $this->getRSA();
 
         $cipher = $rsa->encrypt($plaintext);
@@ -161,7 +161,7 @@ class Asset extends UQObject {
      * @param array $dn the Distinguished Name (DN) array
      * @return CSR
      */
-    function createCSR($dn) {
+    public function createCSR($dn) {
         return new CSR($this, $dn);
     }
 }

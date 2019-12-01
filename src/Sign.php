@@ -13,7 +13,7 @@ class Sign extends AssetRequest {
      * @return string
      * @throws UQException if signature could not be verified
      */
-    function getSignature() {
+    public function getSignature() {
         $this->verify();
 
         return $this->signature;

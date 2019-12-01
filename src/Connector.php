@@ -52,7 +52,7 @@ class Connector {
      * @return array
      */
     private function getHeaders() {
-        return array_map(function ($key, $val) {
+        return array_map(static function ($key, $val) {
             return $key . ': ' . $val;
         }, array_keys($this->headers), $this->headers);
     }

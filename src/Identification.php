@@ -11,9 +11,19 @@ class Identification extends UQObject {
     const IDENTIFICATION_STATE_CONSUMED = 1;
     const IDENTIFICATION_STATE_EXPIRED = 2;
 
+    /**
+     * @var string $nonce the unformatted identification nonce
+     */
     protected $nonce;
+
+    /**
+     * @var string $nonce_formatted the identification nonce, in the format as used in the app
+     */
     protected $nonce_formatted;
 
+    /**
+     * @var string|null $asset_uuid the UUID if the asset this identification request is for
+     */
     protected $asset_uuid;
 
     /**
@@ -27,28 +37,28 @@ class Identification extends UQObject {
     protected $qrcode;
 
     /**
-     * @return string
+     * @return string the unformatted nonce
      */
     public function getNonce() {
         return $this->nonce;
     }
 
     /**
-     * @return string
+     * @return string the formatted nonce
      */
     public function getNonceFormatted() {
         return $this->nonce_formatted;
     }
 
     /**
-     * @return integer
+     * @return integer the status code
      */
     public function getStatusCode() {
         return $this->status_code;
     }
 
     /**
-     * @return string
+     * @return string the status text
      */
     public function getStatusText() {
         return $this->status_text;
@@ -81,7 +91,6 @@ class Identification extends UQObject {
 
         return $png;
     }
-
 
     /**
      * @return string the BASE64 encoded QR code PNG image

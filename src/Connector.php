@@ -72,10 +72,13 @@ class Connector {
         $out = '?';
 
         foreach ($args as $name => $value) {
-            if ($c++ != 0) $out .= '&';
-            $out .= urlencode("$name");
+            if ($c++ !== 0) {
+                $out .= '&';
+            }
 
-            if (is_null($value)) {
+            $out .= urlencode((string)$name);
+
+            if ($value === null) {
                 //For null values, just print the name, without =
                 continue;
             }
@@ -85,7 +88,7 @@ class Connector {
             if (is_array($value)) {
                 $out .= urlencode(serialize($value));
             } else {
-                $out .= urlencode("$value");
+                $out .= urlencode((string)$value);
             }
         }
 

@@ -20,15 +20,21 @@ class CallbackHandler {
     }
 
     /**
-     * @param $data
+     * @param stdClass|string $data
      * @return stdClass
      * @throws UQException
      */
     private static function readCallback($data) {
         if (is_string($data)) {
-            if (null === $data = json_decode($data)) {
+            $data = json_decode($data, false);
+
+            if ($data === null) {
                 throw new UQException('Cannot decode JSON payload: ' . json_last_error_msg(), json_last_error());
             }
+        }
+
+        if (!is_object($data)) {
+            throw new UQException('Expected payload to be an object, got ' . gettype($data));
         }
 
         if (!property_exists($data, 'callback')) {

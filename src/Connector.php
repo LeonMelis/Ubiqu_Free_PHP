@@ -139,7 +139,9 @@ class Connector {
 
         curl_close($ch);
 
-        if (null === $data = json_decode($response)) {
+        $data = json_decode($response, false);
+
+        if ($data === null) {
             throw new UQException('Cannot decode JSON response: ' . json_last_error_msg(), json_last_error());
         }
 

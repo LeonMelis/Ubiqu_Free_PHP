@@ -130,9 +130,7 @@ class ServiceProvider extends UQObject {
             return true;
         }
 
-        $result = $this->connector->post('/serviceprovider/validatedomain');
-
-        return $result->success;
+        return $this->connector->post('/serviceprovider/validatedomain')->success;
     }
 
     /**

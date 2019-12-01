@@ -82,7 +82,7 @@ abstract class AssetRequest extends UQObject {
      * @throws UQException if fetch fails
      */
     public function debugPollForResponse() {
-        while (in_array($this->status_code, [self::ASSET_REQUEST_STATE_CREATED, self::ASSET_REQUEST_STATE_PREPARED])) {
+        while (in_array($this->status_code, [self::ASSET_REQUEST_STATE_CREATED, self::ASSET_REQUEST_STATE_PREPARED], true)) {
             echo "Waiting for response on asset request {$this->uuid} (state = {$this->status_code}: '{$this->status_text}')\n";
             sleep(1);
             $this->fetch(true);

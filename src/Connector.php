@@ -21,7 +21,7 @@ class Connector {
     /**
      * @var array|null $status the status of the last call to the server
      */
-    private $status = null;
+    private $status;
 
     /**
      * @var array $headers
